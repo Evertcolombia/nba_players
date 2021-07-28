@@ -18,11 +18,5 @@ RUN update-alternatives --set python /usr/bin/python3.7
 RUN apt-get install -y python3-pip
 RUN pip3 install -Iv pep8==1.7.0
 
-# Upgrade pip to latest version
-RUN curl -s https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
-    python get-pip.py --force-reinstall && \
-    rm get-pip.py
-
-
 COPY ./requirements.txt /requirements.txt
-RUN pip install -r /requirements.txt
+RUN pip3 install -r /requirements.txt
